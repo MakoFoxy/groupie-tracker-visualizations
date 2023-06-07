@@ -1,0 +1,555 @@
+/* GLOBAL */
+:root {
+    --yellow-color : rgb(224, 206, 62);
+}
+
+html,
+body {
+    height: 100%;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+.link {
+    color: #000;
+    text-decoration: none;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+.wrapper {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    flex-wrap: wrap;
+    margin: 0 auto;
+    padding: 10px 30px;
+    background-color: #fff;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    flex: 1 1 auto;
+}
+
+.changeColor:hover {
+    color: var(--yellow-color);
+    transition: color .5s ease;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    } 
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/*Preloader*/
+.preloader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    transition: 1s all;
+    opacity: 1;
+    visibility: visible;
+    z-index: 50;
+}
+
+.done {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader {
+    width: 75px;
+    height: 75px;
+    border: 7px solid #fff;
+    border-radius: 50%;
+    border-top-color:var(--yellow-color);
+    animation: 1s spin infinite;
+}
+
+/*Home page*/
+.content {
+    position: relative;
+    width: 450px;
+    height: 450px;
+    overflow: hidden;
+    border: 1px solid #000;
+}
+
+.content-animation {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba( 0, 0, 0, .7) ;
+    opacity: 1;
+}
+
+
+.content-animation:hover {
+    transition: opacity .5s ease;
+    opacity: 0;
+}
+
+.content-text {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    margin: 0;
+    font-weight: 700;
+    color:#fff;
+}
+
+/* Templates */
+.header {
+    position: sticky;
+    top: 0;
+    justify-content: space-between;
+    padding: 15px 70px;
+    background-color: #fff;
+    z-index: 10;
+}
+
+.logo-img {
+    width: 100px;
+    height: 100px;
+}
+
+.name-logo {
+    margin: 0;
+    max-width: 200px;
+}
+
+.main-link {
+    margin: 0;
+    padding: 20px 0;
+    width: 100%;
+}
+
+.gap-logo {
+    padding-left: 30px;
+}
+
+.search-bar {
+    padding-left: 15px;
+    min-width: 450px;
+    height: 30px;
+}
+
+.nav_link {
+    font-size: 20px;
+    font-weight: 700;
+} 
+
+.animation-link:hover .logo-img{
+    animation: spin 1s linear 0s infinite;
+}
+
+.animation-link:hover .animation-logo {
+    color: var(--yellow-color);
+    transition: color .5s ease;
+}
+
+.nav_link:first-child {
+    margin-right: 100px;
+}
+
+.discord-logo {
+    margin-right: 5px;
+}
+
+.discord-link:not(:last-child) {
+    margin-right: 15px;
+}
+
+.footer__inner {
+    justify-content: center;
+    padding: 20px 0;
+    gap: 0;
+}
+
+.discord-link {
+    font-weight: 600;
+}
+
+/*BURGER-MENU*/
+.menu-btn {
+    display: none; 
+	width: 30px;
+	height: 30px;
+	position: relative;
+	z-index:2;
+	overflow: hidden;
+    cursor: pointer;
+}
+
+.menu-btn span {
+	width: 30px;
+	height: 2px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: #222222;
+	transition: all 0.5s;
+}
+
+.menu-btn span:nth-of-type(2) {
+	top: calc(50% - 5px);
+}
+
+.menu-btn span:nth-of-type(3) {
+	top: calc(50% + 5px);
+}
+
+.menu {
+    display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+    padding-top: 90px;
+    background: #fff;
+	transform: translateX(-100%);
+	transition: transform 0.5s; 
+    z-index: 2;
+    opacity: .9;
+}
+
+body.noscroll {
+    overflow: hidden;
+}
+
+.menu.active {
+	transform: translateX(0);
+}
+
+.menu-btn.active span:nth-of-type(1) {
+    display: none;
+}
+
+.menu-btn.active span:nth-of-type(2) {
+    top: 50%;
+    transform: translate(-50%, 0%) rotate(45deg);  
+}
+
+.menu-btn.active span:nth-of-type(3) {
+    top: 50%;
+    transform: translate(-50%, 0%) rotate(-45deg); 
+}
+
+.burger-contacts {
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 25px;
+    padding: 20px 0;
+    gap: 0;
+    background-color: #fff;
+    border-top: 2px solid #000;
+}
+
+.search-bar_burger {
+    margin-top: 10px;
+    margin-bottom: 35px;
+    text-align: center;
+}
+
+.search-bar_burger input {
+    border: none;
+    border-radius: 10px;
+    height: 25px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.allList {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 25px;
+    width: 80%;
+    height: 60%;
+    overflow-x: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.allList-header {
+    margin: 0;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 25px;
+}
+
+.allList-link {
+    padding: 5px;
+    text-decoration: none;
+    color: #000;
+    font-size: 18px;
+    font-weight: 700;
+    width: max-content;
+}
+
+.allList-link:not(:last-child){
+    margin-bottom: 10px;
+}
+
+/*Artist page*/
+.container-artist {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+}
+.main-logo {
+    margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 300px;
+}
+
+.main-logo img {
+    display: block;
+    border-radius: 50%;
+}
+
+.main-logo h2 {
+    text-align: center;
+}
+
+.artist-content {
+    margin: 0 auto;
+    justify-content: space-between;
+    align-items: start;
+    max-width: 700px;
+}
+
+
+.key-tour {
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.status-err {
+    margin-top: 150px;
+    font-size: 40px;
+    font-weight: 700;
+    text-align: center;
+}
+
+
+/* MEDIA */
+@media only screen and (max-width: 1580px) {
+    h1 {
+        font-size: 25px;
+    }
+
+    .header {
+        padding: 0 30px;
+    }
+
+    .content {
+        width: 350px;
+        height: 350px;
+    }
+
+    .logo-img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .search-bar {
+        min-width: 425px;
+    }
+}
+
+@media only screen and (max-width: 1280px) {
+    .search-bar {
+        min-width: 350px;
+    }
+    
+    .nav_link:first-child {
+        margin-right: 50px;
+    }
+}
+
+@media only screen and (max-width: 1199px) {
+    h1 {
+        font-size: 20px;
+    }
+
+    .header {
+        padding: 0 30px;
+    }
+
+    .main-link {
+        gap: 10px;
+    }
+
+    .name-logo {
+        margin: 0;
+        max-width: 155px;
+    }
+
+
+    .logo-img {
+        width: 65px;
+        height: 65px;
+    }
+
+    .search-bar {
+        min-width: 300px;
+    }
+
+    .nav_link:first-child {
+        margin-right: 20px;
+    }
+
+    .nav_link {
+        font-size: 18px;
+    }
+
+    .content {
+        width: 270px;
+        height: 270px;
+    }
+}
+
+@media only screen and (max-width: 961px) {
+    .gap-flex {
+        gap: 20px;
+    }
+   
+    .header {
+        padding: 0 15px;
+    }
+
+    .logo-img {
+        width: 50px;
+        height: 50px;
+    }
+
+    h1 {
+        font-size: 17px;
+    }
+    
+    .gap-logo {
+        padding-left: 15px;
+    }
+
+    .search-bar {
+        min-width: 200px;
+    }
+
+    .nav_link {
+        font-size: 16px;
+    }
+
+    .nav_link:first-child {
+        margin-right: 10px;
+    }
+
+    .content {
+        width: 220px;
+        height: 220px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .search_none-burger {
+        display: none;
+    }
+
+    .nav_none-burger {
+        display: none;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .menu {
+        display: block;
+    }
+
+    .main-logo {
+        margin-bottom: 20px;
+        max-width: 250px;
+    }
+
+    .main-logo h2 {
+        font-size: 20px;
+    }
+
+    .members h3,
+    .tours h3 {
+        font-size: 18px;
+    }
+
+    .key-tour {
+        font-size: 15px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .allList-header {
+        font-size: 18px;
+    }
+
+    .allList-link {
+        font-size: 16px;
+    }
+
+    .artist-content {
+        flex-direction: column;
+        justify-content: start;
+    }
+
+    .artist-content.flex {
+        gap: 0;
+    }
+
+    .members,
+    .tours {
+        margin: 0 auto;
+    }
+
+    .members h3,
+    .tours h3 {
+        margin: 0;
+        text-align: center;
+    }
+
+    .members {
+        margin-bottom: 25px;
+    }
+
+    .tours {
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 340px) {
+    .allList-link {
+        font-size: 15px;
+    }
+}

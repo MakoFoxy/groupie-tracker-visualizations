@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/static/style/normalaize.css">
+    <link rel="stylesheet" href="/assets/static/style/style.css">
+    <link rel="icon" type="image/x-icon" href="/assets/static/img/fav.ico">
+    <title>GROUPIE-TRACKER</title>
+</head>
+<body>
+    {{template "preloader"}}
+    <div class="wrapper">
+        {{template "header"}}
+        <main>
+            <div class="menu">
+                <nav>
+                    <div class="search-bar_burger">
+                        <input type="text" placeholder="Search..">
+                    </div>
+                </nav>
+                <div class="allList">
+                    <h3 class="allList-header">Artist's List</h3>
+                    {{range.}}
+                   <a class="allList-link changeColor" href="http://localhost:4000/artist/{{.Id}}" >
+                      {{.Name}}
+                   </a>
+                   {{end}}
+                </div>
+            </div>
+            <div class="container flex gap-flex">
+                {{range.}}
+                <div class="content">
+                    <a class="band-logo" href="http://localhost:4000/artist/{{.Id}}">
+                        <img src="{{.Image}}" alt="Here is a picture of {{.Name}} " title="{{.Name}}">
+                        <div class="content-animation">
+                            <p class="content-text">
+                                {{.Name}}
+                            </p>
+                        </div>
+                    </a>
+                </div>
+                {{end}}
+            </div>
+        </main>
+        {{template "footer"}}
+    </div>
+
+    <script src="/assets/static/script/script.js"></script>
+</body>
+</html>

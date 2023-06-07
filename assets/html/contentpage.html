@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/static/style/normalaize.css">
+    <link rel="stylesheet" href="/assets/static/style/style.css">
+    <link rel="icon" type="image/x-icon" href="/assets/static/img/fav.ico">
+    <title>{{.Name}}</title>
+</head>
+</head>
+<body>
+    {{template "preloader"}}
+    <div class="wrapper">
+        <header class="header flex" id="myHeader">
+            <div>
+               <a class="main-link flex animation-link link" href="/">
+                  <img class="logo-img" src="/assets/static/img/logo.png" alt="logo-grupie-tracker">
+                  <h1 class="name-logo">
+                     <span class="animation-logo">GROUPIE</span> 
+                     <span class="gap-logo">TRACKER</span>
+                  </h1>
+               </a>
+            </div>
+            <div class="search_none-burger">
+               <input class="search-bar" type="text" placeholder="Search..">
+            </div>
+            <nav class="nav_none-burger">
+                <a class="nav_link link" href="/">Home Page</a>
+                <a class="nav_link link" href="#contact">Contacts</a>
+             </nav>
+         </header>
+        <main>
+            <div class="container container-artist">
+                <div class="main-logo">
+                    <img src="{{.Image}}" alt="Here is a picture of {{.Name}} " title="{{.Name}}">
+                    <h2>{{.Name}}</h2>
+                </div>
+                <div class="artist-content flex">
+                    <div class="members">
+                        <h3>Members:</h3>
+                        {{range .Members}}
+                        <p>{{.}}</p>
+                        {{end}}
+                        <hr>
+                        <p>Creation date: {{.CreationDate}}</p>                      
+                    </div>
+                    <div class="tours">
+                        <h3>Tours:</h3>
+                        {{range $key, $value := .DatesLocations}}
+                        <p class="key-tour">{{$key}}:</p>
+                            {{range $value}}
+                        <p class="date-value">{{.}}</p>
+                            {{end}}
+                        {{end}}
+                    </div>
+                </div>
+            </div>
+        </main>
+        {{template "footer"}}
+    </div>
+    <script src="/assets/static/script/script.js"></script>
+</body>
+</html>
